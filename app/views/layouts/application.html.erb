@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subasteando</title>
+  <%= stylesheet_link_tag 'screen.css', :media => 'screen, projection' %>
+  <%= stylesheet_link_tag 'print.css', :media => 'print' %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!--[if IE]>
+    <%= stylesheet_link_tag 'ie.css', :media => 'screen, projection' %>
+  <![endif]-->
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
