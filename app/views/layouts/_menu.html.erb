@@ -1,0 +1,53 @@
+<div id="menu_navegacion">
+  <ul class="tabs" >
+    <li><%= link_to "Home", root_url, {:class=>((@page and @page[:menu] == 'home') ? 'activo' : nil ),:id=>"menu_home"} %></li>
+    <li>
+      <%= link_to "Seguro Automotriz",{:controller => '/seguros/automotriz', :action => 'index'}, {:class=>((@page and @page[:menu] == 'automotriz') ? 'activo' : nil),:title=>"Seguro Automotriz 2012"} %>
+      <ul class="dropdown" style="width:110px;left:0px;">
+        <li><%= link_to "Cotizar",{:controller=>"/seguros/automotriz/formulario",:action=>"paso1",:id => nil},:title=>"Cotiza tu Seguro Automotriz" %></li>
+        <li><%= link_to "Rescatar Cotización", {:controller=>"/seguros/automotriz/formulario", :action => "recuperar"}, :title=>"Recuperar cotizaciones" %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Otros Seguros", "#", {:class=>((@page and @page[:menu] == 'otros_seguros' ||@page[:menu] == 'otros_seguros' ) ? 'activo' : nil), :onclick=>"javascript: return false;",:title=>"Seguro Obligatorio SOAP 2012, Responsabilidad Civil Argentina"}  %>
+      <ul class="dropdown" style="width:183px;left:-50px;">
+        <li><%= link_to "SOAP 2012",{:controller=>"/seguros/soap", :action => 'index'},:title=>"Seguro Obligatorio SOAP 2012" %></li>
+        <li><%= link_to "Seguro Internacional Argentina", {:controller=>"/seguros/rci", :action => 'index'},:title=>"Responsabilidad Civil Argentina" %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Otros Servicios", "#", :class=>((@page and @page[:menu] == 'otros_servicios') ? 'activo' : nil),:title=>"Seguro de Viaje" %>
+      <ul class="dropdown" style="width:193px;left:-52px; ">
+        <li><%= link_to "Asistencia en Viajes", {:controller=>"/viajes/asistencia_en_viaje", :action => 'index', :pais => 'cl'},:title=>"Asistencia en Viaje" %></li>
+        <li><%= link_to "Crédito Automotriz", {:controller=>"/credito_automotriz", :action => 'index'},:title=>"Crédito Automotriz" %></li>
+        <li><%= link_to "Crédito Hipotecario", {:controller=>"/credito_hipotecario", :action => 'index'},:title=>"Crédito Hipotecario" %></li>
+        <li><%= link_to "Crédito Consumo", {:controller => '/credito_consumo',:action =>'index'},:title=>"Crédito de Consumo" %></li>
+        <li><%= link_to "Telefonía Móvil", {:controller => '/telefonia_movil',:action =>'index'},:title=>"Telefonía Móvil" %></li>
+        <li><%= link_to "Banda ancha", {:controller => '/banda_ancha',:action =>'index'},:title=>"Banda ancha" %></li>
+        <li><%= link_to "Recarga de prepagos", {:controller => '/recargas',:action =>'index'},:title=>"Recarga Prepagos" %></li>
+        <li><%= link_to "Cupones de descuento", {:controller=>"/cupones", :action => 'index'},:title=>"Cupones de descuento" %></li>
+        <li><%= link_to "Otras Comparaciones", {:controller=>"/otras_comparaciones", :action => 'index'} %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Noticias", "/prensa/prensa/",:title=>"Noticias ComparaOnline.com" %>
+      <ul class="dropdown" style="width:125px;left:-40px;">
+        <li><%= link_to "Home", "/prensa/prensa",:title=>"Últimas Noticias" %></li>
+        <li><%= link_to "Autos", "/prensa/autos",:title=>"Noticias sobre autos" %></li>
+        <li><%= link_to "Viajes", "/prensa/viajes",:title=>"Noticias sobre viajes" %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Blog", "/prensa/blog/", :title=>"Blog ComparaOnline.com"%>
+      <ul class="dropdown" style="width:175px;right:-55px;">
+        <li><%= link_to "Últimos Post", "/prensa/blog" %></li>
+        <li><%= link_to "Equipo", "/prensa/equipo" %></li>
+        <li><%= link_to "ComparaOnline en la Prensa", "/prensa/nosotros-en-la-prensa" %></li>
+        <li><%= link_to "Yo usé ComparaOnline", "/prensa/yo-use-comparaonline" %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Ayuda", {:controller=>"/ayuda",:action => "index", :menu_superior => "automotriz",:partial_pagina=>"faq_seguro_auto"},{ :class=>((@page and @page[:menu] == 'ayuda') ? 'activo' : nil),:title=>"Dudas sobre Seguro Automotriz, Obligatorio o Asistencia en Viaje" }%>
+      <ul class="dropdown" style="width:117px;right:0px;">
+        <li><%= link_to "Seguro Automotriz", {:controller=>"/ayuda",:action => "index", :menu_superior => "automotriz",:partial_pagina=>"faq_seguro_auto"} %></li>
+        <li><%= link_to "SOAP", {:controller=>"/ayuda",:action => "index", :menu_superior => "soap",:partial_pagina=>"faq_soap"} %></li>
+        <li><%= link_to "Asistencia en Viaje", {:controller=>"/ayuda",:action => "index", :menu_superior => "asistencia_viajes",:partial_pagina=>"faq_asistencia_en_viajes"} %></li>
+      </ul>
+    </li>
+  </ul>
+</div>
