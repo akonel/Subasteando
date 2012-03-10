@@ -1,4 +1,6 @@
 @import "variables";
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
 
 /*
 	Variable Grid System.
@@ -18,6 +20,7 @@
 
 body {
   min-width: 960px;
+  @include clearfix;
 }
 
 /* Containers
@@ -26,6 +29,8 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: 960px;
+	height:100%;
+	@include clearfix;
 }
 
 /* Grid >> Global
@@ -206,14 +211,97 @@ body {
 }
 
 body.skyblue_des{
+	position:relative;
 	margin: 0px;
 	padding: 0px;
-	color: black;
+	color: #F1FDFC;
 	font-family: 'Trebuchet MS',Helvetica;
 	font-size: 13px;
-	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#33C3DF), to(white));
-	background: -moz-linear-gradient(#33C3DF, white);
-	background: linear-gradient(#33C3DF, white);
-	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#33C3DF,endColorstr=#ffffff);
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#33C3DF), to(#D6F9F4));
+	background: -moz-linear-gradient(#33C3DF, #D6F9F4);
+	background: linear-gradient(#33C3DF, #D6F9F4);
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#33C3DF,endColorstr=#D6F9F4);
 	background-attachment: fixed;
+	height:100%;
+
+	.grid_6{
+		text-align:center;
+		height:295px;
+		h2{
+			font-size:40px;
+		}
+		h1{
+			font-size:52px;
+		}
+		h3{
+			font-size:25px;
+		}
+	}
+	
+	.nubes{
+		position:relative;
+		margin-top:30px;
+		height: 240px;
+		overflow: auto;
+		.forma1,.forma2,.forma3{
+		
+		background-color:rgb(255, 255, 255);      
+		width:150px;
+		border-radius: 80px / 50px;
+		}
+		.forma1{
+			width:120px;
+			height:120px;   
+			border-radius:120px;
+	        margin:20px 0 0 60px;
+		}
+		.forma2{
+			height:80px;
+			margin:-90px 0 0 80px;
+		}
+
+		.forma3{
+			height:90px;
+			margin:-90px 0 0 0px;     
+		}
+		@-webkit-keyframes animar{
+		     0% { } 
+		     50% { -webkit-transform:translateX(700px) scale(1.2);}
+		     100% {-webkit-transform:translateX(0px); }
+		}
+		#nube1{
+		   -webkit-animation-name: animar;
+		   -webkit-animation-duration: 20s;
+		   -webkit-animation-timing-function: lineal;
+		   -webkit-animation-iteration-count:infinite;
+		   opacity: 0.6;
+		   margin:0;
+		   position:absolute;
+		   top:-10px;
+		   left:25%;
+		}
+
+		#nube2{
+		   -webkit-animation-name: animar;
+		   -webkit-animation-duration: 15s;
+		   -webkit-animation-timing-function: lineal;
+		   -webkit-animation-iteration-count:infinite;
+		   opacity: 0.4;
+		   position:absolute;
+		   top:20px;
+		   left:35%;
+		}
+
+		#nube3{
+		   -webkit-animation-name: animar;
+		   -webkit-animation-duration: 12s;
+		   -webkit-animation-timing-function: lineal;
+		   -webkit-animation-iteration-count:infinite;
+		   opacity: 0.7;
+		   position:absolute;
+		   top:-10px;
+		   left:45%;
+		}
+	}
+
 }

@@ -1,18 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
-  <%= render :partial => "layouts/head" %>
-  <body>
-    <div id="header">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Subasteando</title>
+    <%= stylesheet_link_tag 'estructura.css', :media => 'screen' %>    
+    <%= stylesheet_link_tag 'screen.css', :media => 'projection' %>
+    <%= stylesheet_link_tag 'print.css', :media => 'print' %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!--[if IE]>
+      <%= stylesheet_link_tag 'ie.css', :media => 'screen, projection' %>
+    <![endif]-->
+  </head>
+  <body class="skyblue_des">
+    <div class="container_12 " id="container">
+      <%= yield %>
     </div>
-
-    <div class="container_12" id="container">
-      <div id="header_content" class="grid_12" style="position:relative;height:110px;z-index:3;">
-        <%= render :partial => '/layouts/menu' %>
-        <h1 id="logo">
-          <%= link_to "<span>Subasteando.cl</span>", root_url %>
-        </h1>
-      </div>
-
-    <%= render "layouts/footer_public" %>
   </body>
 </html>
