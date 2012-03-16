@@ -26,4 +26,5 @@ production:
   database: subasteando
   username: subasteando
   password: subasteando.1234
+  socket: /var/run/mysqld/mysqld.sock
   pool: 30
