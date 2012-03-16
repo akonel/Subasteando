@@ -24,8 +24,6 @@ production:
   adapter: mysql2
   encoding: utf8
   database: subasteando
-  host: 127.0.0.1
   username: subasteando
   password: subasteando.1234
-  socket: /var/run/mysqld/mysqld.sock
   pool: 30
