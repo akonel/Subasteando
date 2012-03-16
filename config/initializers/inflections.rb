@@ -13,3 +13,12 @@
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections do |inflect|
+	inflect.irregular 'usuario', 'usuarios'
+	inflect.irregular 'producto', 'productos'
+	inflect.irregular 'categoria', 'categorias'
+	inflect.irregular 'oferta', 'ofertas'
+	inflect.irregular 'venta', 'ventas'
+	inflect.irregular 'comuna', 'comunas'
+	inflect.irregular 'region', 'regiones'
+end
