@@ -6,9 +6,8 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: subasteando
-  host: localhost
-  username: subasteando_dev
+  database: subasteando_dev
+  username: subasteando
   password: subasteando.1234
   pool: 100
 
@@ -25,7 +24,6 @@ production:
   adapter: mysql2
   encoding: utf8
   database: subasteando
-  host: winnot.com
   username: subasteando
   password: subasteando.1234
   pool: 30
