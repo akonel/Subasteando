@@ -1,6 +1,5 @@
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, 'global'
 set :rvm_type, :user
 
 default_run_options[:pty] = true 
