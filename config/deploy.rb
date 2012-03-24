@@ -1,3 +1,8 @@
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+require "rvm/capistrano"
+set :rvm_ruby_string, '1.9.3'
+set :rvm_type, :user
+
 default_run_options[:pty] = true 
 ssh_options[:forward_agent] = true
 set :application, "subasteando"
@@ -7,16 +12,13 @@ set :user, "jorge"
 set :use_sudo, false
 set :branch, "master"
 set :deploy_via, :remote_cache
+set :rails_env, :production
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-
 set :deploy_to, "/home/jorge/subasteando"
 
 server "173.255.215.155", :web, :app, :db, :primary => true
-
-# after "deploy:update_code", :bundle_install
-# after "deploy:update_code", :compass_compile
 
 namespace :deploy do
 	desc "Restart passenger"
@@ -25,13 +27,17 @@ namespace :deploy do
 	end
 end
 
-# task :bundle_install, :roles => :app do
-# 	run "cd #{release_path} && bundle install"
-# end
+task :compass_compile do
+	run "cd #{release_path} && bundle exec compass compile"
+end
 
-# task :compass_compile do
-# 	run "cd #{release_path} && bundle exec compass compile"
-# end
+after "deploy:update_code", :bundle_install
+after "deploy:update_code", :compass_compile
+
+desc "Install necessary prerequesites"
+task :bundle_install, :roles => :app do
+	run "cd #{release_path} && bundle install"
+end
 
 # role , "173.255.215.155"                          # This may be the same as your `Web` server
 # role :db,  "173.255.215.155", :primary => true # This is where Rails migrations will run
