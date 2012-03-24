@@ -1,7 +1,5 @@
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, '1.9.3'
-set :rvm_type, :user
 
 default_run_options[:pty] = true 
 ssh_options[:forward_agent] = true
@@ -36,6 +34,7 @@ after "deploy:update_code", :compass_compile
 
 desc "Install necessary prerequesites"
 task :bundle_install, :roles => :app do
+	run "rvm gemset use global"
 	run "cd #{release_path} && bundle install --path vendor/cache"
 end
 
