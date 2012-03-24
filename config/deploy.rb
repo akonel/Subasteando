@@ -30,14 +30,14 @@ task :compass_compile do
 	run "cd #{release_path} && bundle exec compass compile"
 end
 
-after "deploy:update_code", :bundle_install
+# after "deploy:update_code", :bundle_install
 after "deploy:update_code", :compass_compile
 
-desc "Install necessary prerequesites"
-task :bundle_install, :roles => :app do
-	run "rvm gemset use global"
-	run "cd #{release_path} && bundle install --path vendor/cache"
-end
+# desc "Install necessary prerequesites"
+# task :bundle_install, :roles => :app do
+# 	run "rvm gemset use global"
+# 	run "cd #{release_path} && bundle install --path vendor/cache"
+# end
 
 # role , "173.255.215.155"                          # This may be the same as your `Web` server
 # role :db,  "173.255.215.155", :primary => true # This is where Rails migrations will run
